@@ -1,0 +1,25 @@
+## 
+ docker build -t cadd . 
+
+#parameters
+input="/media/yagoubali/bioinfo2/cadd_vep/input.txt"
+outdir="/media/yagoubali/bioinfo2/cadd_vep/output"
+db="/media/yagoubali/bioinfo2/functional_annotations/db/hg19"
+bindir="/media/yagoubali/bioinfo2/ensembl-vep"
+
+
+## Run
+
+docker run --rm -it --name testing -v ${db}:/db -v ${input}:/home/input.txt -v ${bindir}:/bindir -v ${outdir}:/home/outdir -v /app  cadd   bash /app/scripts/script.sh /home/input.txt /home/outdir
+
+
+## Download annotation
+wget -c https://kircherlab.bihealth.org/download/CADD/v1.6/GRCh37/whole_genome_SNVs.tsv.gz
+wget -c https://kircherlab.bihealth.org/download/CADD/v1.6/GRCh37/whole_genome_SNVs.tsv.gz.tbi
+wget -c https://kircherlab.bihealth.org/download/CADD/v1.6/GRCh37/InDels.tsv.gz
+wget -c https://kircherlab.bihealth.org/download/CADD/v1.6/GRCh37/InDels.tsv.gz.tbi
+
+
+
+
+
