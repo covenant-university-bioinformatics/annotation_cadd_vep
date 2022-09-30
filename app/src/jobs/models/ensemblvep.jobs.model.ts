@@ -39,8 +39,9 @@ export interface EnsemblVepJobsDoc extends mongoose.Document {
     email?: string;
     failed_reason: string;
     longJob: boolean;
-    ensemblvep_params: EnsemblVepDoc;
     resultsFile: string;
+    summaryFile: string;
+    ensemblvep_params: EnsemblVepDoc;
     version: number;
     completionTime: Date;
 }
