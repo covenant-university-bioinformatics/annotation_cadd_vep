@@ -7,14 +7,14 @@ outdir=$2
 bindir="/local/datasets/ensembl-vep" ## mount voulume
 dbdir="/local/datasets/ensembl-vep" ## mount voulume
  
-${bindir}/vep -i ${input} -o ${outdir}/cadd_annoation.txt -offline \
+${bindir}/vep -i ${input} -o ${outdir}/cadd_annotation.txt -offline \
 --dir_cache  ${bindir}/cache --plugin CADD,${dbdir}/InDels.tsv.gz,${dbdir}/whole_genome_SNVs.tsv.gz \
 --dir_plugin  ${bindir}/cache/Plugins --tab
 
-if [ -f  ${outdir}/cadd_annoation.txt ]; then
-    grep -v "^##" ${outdir}/cadd_annoation.txt > ${outdir}/results_annoation.txt;
+if [ -f  ${outdir}/cadd_annotation.txt ]; then
+    grep -v "^##" ${outdir}/cadd_annotation.txt > ${outdir}/results_annotation.txt;
     else 
-    touch ${outdir}/results_annoation.txt
+    touch ${outdir}/results_annotation.txt
 fi    
     
 
